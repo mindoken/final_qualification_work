@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <header>
+        <a href = "/login">Вход</a>
+        <a href = "/register">Регистрация</a>
+        <a href = "/profile">Личный кабинет</a>
+        <a href = "/logout">Выйти</a>
+        {%if current_user.is_employer== True%}
+        <a href = "/create_post">Создать объявление</a>
+        {%endif%}
+        {%if current_user.is_employer== False%}
+        <a href="/create_resume">Создать резюме</a>
+        {%endif%}
+        
+    </header>
+    <div>
+        <div>Имя {{profile.firstname}}</div>
+        <div>Фамилия{{profile.lastname}}</div>
+    </div>
+{% for row in rows %}
+  <tr>
+   <td>{{ row.title }}</td>
+   <td><form method="post" >
+     <input type="hidden" name="data" value="{{ row.id }}">
+     <input type="submit" value="Подробнее">
+    </form></td>
+  </tr>
+  {% endfor %}
+</body>
+</html>

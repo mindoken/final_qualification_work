@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <header>
+    <header>
+      <a href = "/login">Вход</a>
+      <a href = "/register">Регистрация</a>
+      <a href = "/profile">Личный кабинет</a>
+      <a href = "/logout">Выйти</a>
+      {%if current_user.is_employer== True%}
+      <a href = "/create_post">Создать объявление</a>
+      {%endif%}
+      {%if current_user.is_employer== False%}
+      <a href="/create_resume">Создать резюме</a>
+      {%endif%}
+      
+  </header>
+    
+</header>
+Все резюме
+{% for resume in resumes %}
+  <tr>
+   <td>{{ resume.title }}</td>
+   <td><form method="post" >
+     <input type="hidden" name="dataresume" value= "{{ resume.id }}">
+     <input type="hidden" name="datapost" value= "0">
+     <input type="submit" value="Подробнее">
+    </form></td>
+  </tr>
+  {% endfor %}
+Все объявления
+{% for post in posts %}
+  <tr>
+   <td>{{ post.title }}</td>
+   <td><form method="post" >
+     <input type="hidden" name="datapost" value= "{{ post.id }}">
+     <input type="hidden" name="dataresume" value= "0">
+     <input type="submit" value="Подробнее">
+    </form></td>
+  </tr>
+  {% endfor %}
+
+</body>
+</html>

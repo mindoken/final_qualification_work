@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    
+<header>
+    <a href = "/login">Вход</a>
+    <a href = "/register">Регистрация</a>
+    <a href = "/profile">Личный кабинет</a>
+    <a href = "/logout">Выйти</a>
+    {%if current_user.is_employer== True%}
+    <a href = "/create_post">Создать объявление</a>
+    {%endif%}
+    {%if current_user.is_employer== False%}
+    <a href="/create_resume">Создать резюме</a>
+    {%endif%}
+    
+</header>
+<form action="" method="post">
+    <p><input type=text name=title placeholder="Enter title">
+    <p><input type=text name=text placeholder="Enter text">
+    <p><input type=text name=skills placeholder="Enter skills that needs">
+    <p><input type=text name=job_time placeholder="Enter job_time">
+    <p><input type=text name=job_salary placeholder="Enter job_salary">
+    <p><input type=submit value=Post>
+    </form>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% block header %}
+<header>
+    <a href = "/login">Вход</a>
+    <a href = "/register">Регистрация</a>
+    {%if current_user.is_employer%}
+    <a href = "/create_post">Создать объявление</a>
+    {%1endif%}
+    <a href="/create_resume">Создать резюме</a>
+    
+</header>
+{% endblock %}
+<div id="content">
+    {% block content%} {% endblock %}
+</div>
+</body>
+</html>

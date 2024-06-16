@@ -1,0 +1,5 @@
+flask~=3.0.3
+flask_login
+flask_sqlalchemy
+flask_cors
+SQLAlchemy~=2.0.30
